@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Jr Penetration Tester/Metasploit/Meterpreter" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.2.0">
+<title data-rh="true">Meterpreter | THM Notes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://thm.pochacco.top/img/Pochacco-social-card.png"><meta data-rh="true" name="twitter:image" content="https://thm.pochacco.top/img/Pochacco-social-card.png"><meta data-rh="true" property="og:url" content="https://thm.pochacco.top/docs/Jr Penetration Tester/Metasploit/Meterpreter"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Meterpreter | THM Notes"><meta data-rh="true" name="description" content="tools"><meta data-rh="true" property="og:description" content="tools"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://thm.pochacco.top/docs/Jr Penetration Tester/Metasploit/Meterpreter"><link data-rh="true" rel="alternate" href="https://thm.pochacco.top/docs/Jr Penetration Tester/Metasploit/Meterpreter" hreflang="en"><link data-rh="true" rel="alternate" href="https://thm.pochacco.top/docs/Jr Penetration Tester/Metasploit/Meterpreter" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.487c242f.css">
+<script src="/assets/js/runtime~main.32f33024.js" defer="defer"></script>
+<script src="/assets/js/main.7573ae7a.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.png" alt="PochaccoTop Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.png" alt="PochaccoTop Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">TryHackMe Notes</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/Intro">TryHackme</a></div><div class="navbar__items navbar__items--right"><a href="https://index.pochacco.top/en/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Index<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://pochacco.top" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">MainSite<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/pikachu233666" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Intro">TryHackMe</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/Introduction to Cyber Security/Introduction to Cyber Security/Careers in Cyber">Introduction to Cyber Security</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/Introduction to Cyber Security/Introduction to Cyber Security/Careers in Cyber">Pre Security</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/Introduction to Cyber Security/Introduction to Cyber Security/Careers in Cyber">Jr Penetration Tester</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Introduction to Cyber Security/Introduction to Cyber Security/Careers in Cyber">Introduction to Cyber Security</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Jr Penetration Tester/Introduction to Pentesting/Pentesting Fundamentals">Introduction to Pentesting</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Jr Penetration Tester/Introduction to Web Hacking/Authentication Bypass">Introduction to Web Hacking</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Jr Penetration Tester/Burp Suite/Extensions">Burp Suite</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Jr Penetration Tester/Network Security/Active Reconnaissance">Network Security</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Jr Penetration Tester/Vulnerability Research/Exploit Vulnerabilities">Vulnerability Research</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/Jr Penetration Tester/Metasploit/Exploitation">Metasploit</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Jr Penetration Tester/Metasploit/Exploitation">Exploitation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Jr Penetration Tester/Metasploit/Introduction">Introduction</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Jr Penetration Tester/Metasploit/Meterpreter">Meterpreter</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Jr Penetration Tester/Privilege Escalation/Linux Privilege Escalation">Privilege Escalation</a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/Events/The Witch&#x27;s Cauldron">Events</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/Others/Bash Scripting">Others</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Jr Penetration Tester</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Metasploit</span><meta itemprop="position" content="2"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Meterpreter</span><meta itemprop="position" content="3"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><p>#Metasploit #tools</p>
+<p>Meterpreter is a Metasploit payload that supports the penetration testing process with many valuable components. Meterpreter will run on the target system and act as an agent within a command and control architecture. You will interact with the target operating system and files and use Meterpreter&#x27;s specialized commands.</p>
+<h1>How does Meterpreter work</h1>
+<p>Meterpreter runs on the target system but is not installed on it. It runs in memory and does not write itself to the disk on the target. This feature aims to avoid being detected during antivirus scans. By default, most antivirus software will scan new files on the disk (e.g. when you download a file from the internet) Meterpreter runs in memory (RAM - Random Access Memory) to avoid having a file that has to be written to the disk on the target system (e.g. meterpreter.exe). This way, Meterpreter will be seen as a process and not have a file on the target system.</p>
+<p>Meterpreter also aims to avoid being detected by network-based IPS (Intrusion Prevention System) and IDS (Intrusion Detection System) solutions by using encrypted communication with the server where Metasploit runs (typically your attacking machine). If the target organization does not decrypt and inspect encrypted traffic (e.g. HTTPS) coming to and going out of the local network, IPS and IDS solutions will not be able to detect its activities.</p>
+<p>While Meterpreter is recognized by major antivirus software, this feature provides some degree of stealth.</p>
+<p>We have used the <code>getpid</code> command, which returns the process ID with which Meterpreter is running. The process ID (or process identifier) is used by operating systems to identify running processes. All processes running in Linux or Windows will have a unique ID number; this number is used to interact with the process when the need arises (e.g. if it needs to be stopped).</p>
+<p>It is also worth noting that Meterpreter will establish an encrypted (TLS) communication channel with the attacker&#x27;s system.</p>
+<h1>Meterpreter Flavors</h1>
+<p>Metasploit payloads can be initially divided into two categories; inline (also called single) and staged.</p>
+<p>As you will remember, staged payloads are sent to the target in two steps. An initial part is installed (the stager) and requests the rest of the payload. This allows for a smaller initial payload size. The inline payloads are sent in a single step. Meterpreter payloads are also divided into stagged and inline versions. However, Meterpreter has a wide range of different versions you can choose from based on your target system. </p>
+<p>The easiest way to have an idea about available Meterpreter versions could be to list them using msfvenom, as seen below. </p>
+<p>We have used the <code>msfvenom --list payloads</code> command and grepped &quot;meterpreter&quot; payloads (adding <code>| grep meterpreter</code> to the command line), so the output only shows these.</p>
+<p>The list will show Meterpreter versions available for the following platforms</p>
+<ul>
+<li>Android</li>
+<li>Apple iOS</li>
+<li>Java</li>
+<li>Linux</li>
+<li>OSX</li>
+<li>PHP</li>
+<li>Python</li>
+<li>Windows</li>
+</ul>
+<p>Your decision on which version of Meterpreter to use will be mostly based on three factors</p>
+<ul>
+<li>The target operating system (Is the target operating system Linux or Windows? Is it a Mac device? Is it an Android phone? etc.)</li>
+<li>Components available on the target system (Is Python installed? Is this a PHP website? etc.)</li>
+<li>Network connection types you can have with the target system (Do they allow raw TCP connections? Can you only have an HTTPS reverse connection? Are IPv6 addresses not as closely monitored as IPv4 addresses? etc.) </li>
+</ul>
+<p>If you are not using Meterpreter as a standalone payload generated by Msfvenom, your choice may also be limited by the exploit. You will notice some exploits will have a default Meterpreter payload</p>
+<h1>Meterpreter Commands</h1>
+<p>Typing <code>help</code> on any Meterpreter session (shown by <code>meterpreter&gt;</code> at the prompt) will list all available commands.</p>
+<p>Meterpreter will provide you with three primary categories of tools</p>
+<ul>
+<li>Built-in commands</li>
+<li>Meterpreter tools</li>
+<li>Meterpreter scripting</li>
+</ul>
+<p>If you run the <code>help</code> command, you will see Meterpreter commands are listed under different categories</p>
+<ul>
+<li>Core commands</li>
+<li>File system commands</li>
+<li>Networking commands</li>
+<li>System commands</li>
+<li>User interface commands</li>
+<li>Webcam commands</li>
+<li>Audio output commands</li>
+<li>Elevate commands</li>
+<li>Password database commands</li>
+<li>Timestomp commands</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="meterpreter-commands-1">Meterpreter commands<a href="#meterpreter-commands-1" class="hash-link" aria-label="Direct link to Meterpreter commands" title="Direct link to Meterpreter commands">​</a></h2>
+<p>Core commands will be helpful to navigate and interact with the target system.</p>
+<p>Core commands</p>
+<ul>
+<li><code>background</code>: Backgrounds the current session</li>
+<li><code>exit</code>: Terminate the Meterpreter session</li>
+<li><code>guid</code>: Get the session GUID (Globally Unique Identifier)</li>
+<li><code>help</code>: Displays the help menu</li>
+<li><code>info</code>: Displays information about a Post module</li>
+<li><code>irb</code>: Opens an interactive Ruby shell on the current session</li>
+<li><code>load</code>: Loads one or more Meterpreter extensions</li>
+<li><code>migrate</code>: Allows you to migrate Meterpreter to another process</li>
+<li><code>run</code>: Executes a Meterpreter script or Post module</li>
+<li><code>sessions</code>: Quickly switch to another session</li>
+</ul>
+<p>File system commands</p>
+<ul>
+<li><code>cd</code>: Will change directory</li>
+<li><code>ls</code>: Will list files in the current directory (dir will also work)</li>
+<li><code>pwd</code>: Prints the current working directory</li>
+<li><code>edit</code>: will allow you to edit a file</li>
+<li><code>cat</code>: Will show the contents of a file to the screen</li>
+<li><code>rm</code>: Will delete the specified file</li>
+<li><code>search</code>: Will search for files</li>
+<li><code>upload</code>: Will upload a file or directory</li>
+<li><code>download</code>: Will download a file or directory</li>
+</ul>
+<p>Networking commands</p>
+<ul>
+<li><code>arp</code>: Displays the host ARP (Address Resolution Protocol) cache</li>
+<li><code>ifconfig</code>: Displays network interfaces available on the target system</li>
+<li><code>netstat</code>: Displays the network connections</li>
+<li><code>portfwd</code>: Forwards a local port to a remote service</li>
+<li><code>route</code>: Allows you to view and modify the routing table</li>
+</ul>
+<p>System commands</p>
+<ul>
+<li><code>clearev</code>: Clears the event logs</li>
+<li><code>execute</code>: Executes a command</li>
+<li><code>getpid</code>: Shows the current process identifier</li>
+<li><code>getuid</code>: Shows the user that Meterpreter is running as</li>
+<li><code>kill</code>: Terminates a process</li>
+<li><code>pkill</code>: Terminates processes by name</li>
+<li><code>ps</code>: Lists running processes</li>
+<li><code>reboot</code>: Reboots the remote computer</li>
+<li><code>shell</code>: Drops into a system command shell</li>
+<li><code>shutdown</code>: Shuts down the remote computer</li>
+<li><code>sysinfo</code>: Gets information about the remote system, such as OS</li>
+</ul>
+<p>Others Commands (these will be listed under different menu categories in the help menu)</p>
+<ul>
+<li><code>idletime</code>: Returns the number of seconds the remote user has been idle</li>
+<li><code>keyscan_dump</code>: Dumps the keystroke buffer</li>
+<li><code>keyscan_start</code>: Starts capturing keystrokes</li>
+<li><code>keyscan_stop</code>: Stops capturing keystrokes</li>
+<li><code>screenshare</code>: Allows you to watch the remote user&#x27;s desktop in real time</li>
+<li><code>screenshot</code>: Grabs a screenshot of the interactive desktop</li>
+<li><code>record_mic</code>: Records audio from the default microphone for X seconds</li>
+<li><code>webcam_chat</code>: Starts a video chat</li>
+<li><code>webcam_list</code>: Lists webcams</li>
+<li><code>webcam_snap</code>: Takes a snapshot from the specified webcam</li>
+<li><code>webcam_stream</code>: Plays a video stream from the specified webcam</li>
+<li><code>getsystem</code>: Attempts to elevate your privilege to that of local system</li>
+<li><code>hashdump</code>: Dumps the contents of the SAM database</li>
+</ul>
+<p>Although all these commands may seem available under the help menu, they may not all work. For example, the target system might not have a webcam, or it can be running on a virtual machine without a proper desktop environment.</p>
+<h1>Post-Exploitation with Meterpreter</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="help">Help<a href="#help" class="hash-link" aria-label="Direct link to Help" title="Direct link to Help">​</a></h2>
+<p>This command will give you a list of all available commands in Meterpreter.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="meterpreter-commands-2">Meterpreter commands<a href="#meterpreter-commands-2" class="hash-link" aria-label="Direct link to Meterpreter commands" title="Direct link to Meterpreter commands">​</a></h2>
+<p>The <code>getuid</code> command will display the user with which Meterpreter is currently running. This will give you an idea of your possible privilege level on the target system (e.g. Are you an admin level user like NT AUTHORITY\SYSTEM or a regular user?)</p>
+<p>The <code>ps</code> command will list running processes. The PID column will also give you the PID information you will need to migrate Meterpreter to another process.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="migrate">Migrate<a href="#migrate" class="hash-link" aria-label="Direct link to Migrate" title="Direct link to Migrate">​</a></h2>
+<p>Migrating to another process will help Meterpreter interact with it. For example, if you see a word processor running on the target (e.g. word.exe, notepad.exe, etc.), you can migrate to it and start capturing keystrokes sent by the user to this process. Some Meterpreter versions will offer you the <code>keyscan_start</code>, <code>keyscan_stop</code>, and <code>keyscan_dump</code> command options to make Meterpreter act like a keylogger. Migrating to another process may also help you to have a more stable Meterpreter session.</p>
+<p>To migrate to any process, you need to type the migrate command followed by the PID of the desired target process.</p>
+<p>Be careful; you may lose your user privileges if you migrate from a higher privileged (e.g. SYSTEM) user to a process started by a lower privileged user (e.g. webserver). You may not be able to gain them back.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="hashdump">Hashdump<a href="#hashdump" class="hash-link" aria-label="Direct link to Hashdump" title="Direct link to Hashdump">​</a></h2>
+<p>The <code>hashdump</code> command will list the content of the SAM database. The SAM (Security Account Manager) database stores user&#x27;s passwords on Windows systems. These passwords are stored in the NTLM (New Technology LAN Manager) format.</p>
+<p>While it is not mathematically possible to &quot;crack&quot; these hashes, you may still discover the cleartext password using online NTLM databases or a rainbow table attack. These hashes can also be used in Pass-the-Hash attacks to authenticate to other systems that these users can access the same network.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="search">Search<a href="#search" class="hash-link" aria-label="Direct link to Search" title="Direct link to Search">​</a></h2>
+<p>The <code>search</code> command is useful to locate files with potentially juicy information. In a CTF context, this can be used to quickly find a flag or proof file, while in actual penetration testing engagements, you may need to search for user-generated files or configuration files that may contain password or account information.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="shell">Shell<a href="#shell" class="hash-link" aria-label="Direct link to Shell" title="Direct link to Shell">​</a></h2>
+<p>The shell command will launch a regular command-line shell on the target system. Pressing CTRL+Z will help you go back to the Meterpreter shell.</p>
+<h1>Post-Exploitation</h1>
+<p>Meterpreter provides several important post-exploitation tools.</p>
+<p>Commands mentioned previously, such as <code>getsystem</code> and <code>hashdump</code> will provide important leverage and information for privilege escalation and lateral movement. Meterpreter is also a good base you can use to run post-exploitation modules available on the Metasploit framework. Finally, you can also use the load command to leverage additional tools such as Kiwi or even the whole Python language.</p>
+<p>The post-exploitation phase will have several goals; Meterpreter has functions that can assist all of them.</p>
+<ul>
+<li>Gathering further information about the target system.</li>
+<li>Looking for interesting files, user credentials, additional network interfaces, and generally interesting information on the target system.</li>
+<li>Privilege escalation.</li>
+<li>Lateral movement.</li>
+</ul>
+<p>Once any additional tool is loaded using the <code>load</code> command, you will see new options on the <code>help</code> menu.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Jr Penetration Tester/Metasploit/Introduction"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Introduction</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Jr Penetration Tester/Privilege Escalation/Linux Privilege Escalation"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Linux Privilege Escalation</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#meterpreter-commands-1" class="table-of-contents__link toc-highlight">Meterpreter commands</a></li><li><a href="#help" class="table-of-contents__link toc-highlight">Help</a></li><li><a href="#meterpreter-commands-2" class="table-of-contents__link toc-highlight">Meterpreter commands</a></li><li><a href="#migrate" class="table-of-contents__link toc-highlight">Migrate</a></li><li><a href="#hashdump" class="table-of-contents__link toc-highlight">Hashdump</a></li><li><a href="#search" class="table-of-contents__link toc-highlight">Search</a></li><li><a href="#shell" class="table-of-contents__link toc-highlight">Shell</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 Gabriel@pochacco.top</div></div></div></footer></div>
+</body>
+</html>
